@@ -1,0 +1,51 @@
+<html>  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">  
+   
+        var maxstrlen = 200;  
+        function Q(s) { return document.getElementById(s); }  
+   
+        function checkWord(c) {  
+            len = maxstrlen;  
+            var str = c.value;  
+            myLen = getStrleng(str);  
+            var wck = Q("wordCheck");  
+   
+            if (myLen > len) {  
+				wck.innerHTML = myLen;  
+                document.getElementById("hidenword").style.display="block";
+            }  
+            else {  
+                wck.innerHTML = myLen;  
+            }  
+        }  
+   
+        function getStrleng(str) {  
+            myLen = 0;  
+            i = 0;  
+            for (; (i < str.length) && (myLen <= maxstrlen * 2); i++) { 
+                    myLen ++;  
+            }  
+            return myLen;  
+        }  
+      
+</script>  
+</head>  
+<body>  
+    <form id="form1">  
+    <div style="font-size: 14px;width:500px"> 
+		<a style="color:red">*</a>	
+        请填写备注
+		<a style="float:right">)</a>
+		<span style="font-size: 14px;float:right" id="wordTotal">200</span>
+		<a style="float:right">/</a>
+		<span style="font-size: 14px;float:right" id="wordCheck">0</span>
+		<a style="float:right">(</a>
+        <textarea onkeyup="javascript:checkWord(this);" onmousedown="javascript:checkWord(this);"  
+            name="content" style="overflow-y: scroll;width:500px;height:100px"></textarea>  
+		<b id="hidenword" style="color:red;display:none">亲，此项内容填写长度不能超过200个字符哦</b>
+    </div> 
+    </form>  
+</body>  
+</html>
